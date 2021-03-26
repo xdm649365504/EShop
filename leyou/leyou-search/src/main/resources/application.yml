@@ -1,0 +1,35 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: search-service
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: localhost:9300
+  jackson:
+    default-property-inclusion: non_null
+  rabbitmq:
+    host: 127.0.0.1
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    registry-fetch-interval-seconds: 10
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 15 # 10秒不发送就过期
+
+feign:
+  client:
+    config:
+      #这里填具体的服务名称（也可以填default，表示对所有服务生效）
+      app-order:
+        #connectTimeout和readTimeout这两个得一起配置才会生效
+        connectTimeout: 5000
+        readTimeout: 5000
+  hystrix:  #默认不启用 hystrix 这里我自己引入了依赖 不用feign自带的hystrix
+    enabled: true
