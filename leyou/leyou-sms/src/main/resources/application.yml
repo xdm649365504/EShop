@@ -11,7 +11,7 @@ spring:
 
 leyou:
   sms:
-    accessKeyId: LTAItZPERgRMnBQR # 你自己的accessKeyId
-    accessKeySecret: aNp2PblcO1dy7Po1WlSZnh2SGBvLZs # 你自己的AccessKeySecret
+    accessKeyId:  # 你自己的accessKeyId
+    accessKeySecret:  # 你自己的AccessKeySecret
     signName: personneltes # 签名名称
     verifyCodeTemplate: SMS_160760068 # 模板名称
